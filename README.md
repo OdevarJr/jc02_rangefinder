@@ -16,11 +16,11 @@ This library relies on Stream. So, this library is supposed to work with any Ard
 `Rangefinder myRangefinder(Stream &serial)`
 
 ## Functions:
-•	`start()` – With this command, the module will start to do measurements continuously, until receive a STOP command.
-•	`stop()` – With this command, the module will stop to do countinuous measurements.
-•	`reset()` – Reset’s the module. There’s no return for this command.
-•	`singleMeasure()` – With this command, the module will perform only one single measurement and stops. 
-•	`read` – Used to obtain the current measured values. Use it in your loop function to update the measurements. If you started a continuous measure command (with start), the values will be updated in real time. If you used a single measure command, the values will be the same until you do a new reading.
+-	`start()` – With this command, the module will start to do measurements continuously, until receive a STOP command.
+- `stop()` – With this command, the module will stop to do countinuous measurements.
+- `reset()` – Reset’s the module. There’s no return for this command.
+- `singleMeasure()` – With this command, the module will perform only one single measurement and stops. 
+- `read` – Used to obtain the current measured values. Use it in your loop function to update the measurements. If you started a continuous measure command (with start), the values will be updated in real time. If you used a single measure command, the values will be the same until you do a new reading.
 
 ## Measured values available:
 The module’s protocol has a total of 10 parameters that is returned to the user:
@@ -35,7 +35,8 @@ The module’s protocol has a total of 10 parameters that is returned to the use
 -	`velocity`        :  Velocity (float)
 -	`measureUnit`     :  Measure unit (uint8_t) - 1=meters, 2=feet, 3=inches 
 
-But for this low-cost JC02-1 series modules, **only the crow flight distance works, and the measure unit is fixed in 1 (that means meters)**. All the other parameters will always be zero. I kept all the fields available for future use or compatibility with higher end models.
+But for this low-cost JC02-1 series modules, **only the crow flight distance works, and the measure unit is fixed in 1 (that means meters). All the other parameters will always be zero. It's not an malfunction, but a module's feature.**
+I kept all the fields available for future use and compatibility with higher end models. But for now, only `measure` works (and this is the main reason to use such module, right? 😉).
 
 ## Usage example:
 ```
