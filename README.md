@@ -25,7 +25,7 @@ This library relies on Stream. So, this library is supposed to work with any Ard
 ## Measured values available:
 The module’s protocol has a total of 10 parameters that is returned to the user:
 -	`elevation`       :  Elevation Angle (float)
--	`distance`        :  Crow flight Distance (float)
+-	`distance`        :  Crow flight Distance (float) [^1]
 -	`sineHeight`      :  Sine Height (float)
 -	`horizRange`      :  Horizontal Range (float)
 -	`twoPointHeight`  :  Two-Point High (float)
@@ -34,9 +34,6 @@ The module’s protocol has a total of 10 parameters that is returned to the use
 -	`span`            :  Span (float)
 -	`velocity`        :  Velocity (float)
 -	`measureUnit`     :  Measure unit (uint8_t) - 1=meters, 2=feet, 3=inches 
-
-But for this low-cost JC02-1 series modules, **only the crow flight distance works, and the measure unit is fixed in 1 (that means meters). All the other parameters will always be zero. It's not an malfunction, but a module's feature.**
-I kept all the fields available for future use and compatibility with higher end models. But for now, only `measure` works (and this is the main reason to use such module, right? 😉).
 
 ## Usage example:
 ```
@@ -56,3 +53,5 @@ void loop() {
 }
 ```
 
+[^1]: For JC02-1 series modules, only this parameter works, and the measure unit is fixed in 1 (that means meters). All the other parameters will always be zero. **It's not a malfunction, but the module's feature.**
+I kept all the fields available in case of future module's upgrades. But for now, only `distance` works (and this is the main reason to use this module, right? 😉).
